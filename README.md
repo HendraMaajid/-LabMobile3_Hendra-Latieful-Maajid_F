@@ -141,6 +141,12 @@ Fungsi ini biasanya dipanggil ketika pengguna ingin menambahkan anime baru, misa
 ## Demo
 <img src="demo.gif" alt="Demo Fitur Penambahan Anime" width="300"/>
 
+## Screenshots
+<img src="login.png" width="300"/>
+<img src="beranda.png.png" width="300"/>
+<img src="tambah_anime.png" width="300"/>
+<img src="about.png" width="300"/>
+<img src="sidebar.png" width="300">
 
 
 
