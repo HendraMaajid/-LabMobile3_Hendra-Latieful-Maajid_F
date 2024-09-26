@@ -36,64 +36,114 @@ Aplikasi ini memungkinkan pengguna untuk menambahkan dan melihat daftar anime fa
 - `lib/login_page.dart`: Berisi kode untuk halaman login aplikasi.
 - `lib/main.dart`: Berisi kode untuk konfigurasi aplikasi dan routing.
 
-## Fungsi Tambah Anime
+
+# Fitur Penambahan Anime
+
+# Fitur Penambahan Anime
+
+README ini menjelaskan fitur penambahan anime, yang terdiri dari dua fungsi utama: `_addAnime()` dan `_showAddAnimeDialog()`.
+
+## 1. `_addAnime()`
+
 ```dart
-      void addAnime(String name, String description, String imageUrl) {
-        setState(() {
-          animeList.add(Anime(name: name, description: description, imageUrl: imageUrl));
-          saveAnimeList();
-        });
-      }
-      void showAddAnimeDialog(BuildContext context) {
-        final nameController = TextEditingController();
-        final descriptionController = TextEditingController();
-        final imageUrlController = TextEditingController();
-      
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text('Tambah Anime'),
-              content: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  TextField(
-                    controller: nameController,
-                    decoration: InputDecoration(labelText: 'Nama'),
-                  ),
-                  TextField(
-                    controller: descriptionController,
-                    decoration: InputDecoration(labelText: 'Deskripsi'),
-                  ),
-                  TextField(
-                    controller: imageUrlController,
-                    decoration: InputDecoration(labelText: 'URL Gambar'),
-                  ),
-                ],
-              ),
-              actions: <Widget>[
-                TextButton(
-                  child: Text('Batal'),
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-                TextButton(
-                  child: Text('Tambah'),
-                  onPressed: () {
-                    addAnime(
-                      nameController.text,
-                      descriptionController.text,
-                      imageUrlController.text,
-                    );
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ],
-            );
-          },
-        );
-      }
+void _addAnime() {
+   if (_nameController.text.isNotEmpty &&
+           _descriptionController.text.isNotEmpty &&
+           _imageUrlController.text.isNotEmpty) {
+      setState(() {
+         animeList.add({
+            'name': _nameController.text,
+            'description': _descriptionController.text,
+            'image': _imageUrlController.text,
+         });
+         _nameController.clear();
+         _descriptionController.clear();
+         _imageUrlController.clear();
+      });
+      Navigator.of(context).pop();
+   }
+}
 ```
+
+### Penjelasan:
+
+- Fungsi ini bertanggung jawab untuk menambahkan anime baru ke `animeList`.
+- Pertama-tama, fungsi ini memeriksa apakah semua kolom input (nama, deskripsi, dan URL gambar) tidak kosong.
+- Jika semua kolom terisi:
+   1. Menggunakan `setState()` untuk memperbarui status aplikasi.
+   2. Entri anime baru ditambahkan ke `animeList` sebagai map dengan kunci 'name', 'description', dan 'image'.
+   3. Semua controller teks dibersihkan untuk mereset kolom input.
+   4. Dialog ditutup menggunakan `Navigator.of(context).pop()`.
+
+## 2. `_showAddAnimeDialog()`
+
+```dart
+void _showAddAnimeDialog() {
+   showDialog(
+      context: context,
+      builder: (BuildContext context) {
+         return AlertDialog(
+            title: const Text('Tambah Anime'),
+            content: Column(
+               mainAxisSize: MainAxisSize.min,
+               children: [
+                  TextField(
+                     controller: _nameController,
+                     decoration: const InputDecoration(labelText: 'Nama Anime'),
+                  ),
+                  TextField(
+                     controller: _descriptionController,
+                     decoration: const InputDecoration(labelText: 'Deskripsi'),
+                  ),
+                  TextField(
+                     controller: _imageUrlController,
+                     decoration: const InputDecoration(labelText: 'URL Gambar'),
+                  ),
+               ],
+            ),
+            actions: [
+               TextButton(
+                  onPressed: () {
+                     _addAnime();
+                  },
+                  child: const Text('Tambah'),
+               ),
+               TextButton(
+                  onPressed: () {
+                     Navigator.of(context).pop();
+                  },
+                  child: const Text('Batal'),
+               ),
+            ],
+         );
+      },
+   );
+}
+```
+
+### Penjelasan:
+
+- Fungsi ini membuat dan menampilkan dialog untuk menambahkan anime baru.
+- Menggunakan fungsi `showDialog()` Flutter untuk menampilkan `AlertDialog`.
+- Dialog tersebut berisi:
+   1. Judul: "Tambah Anime"
+   2. Konten: Tiga widget `TextField` untuk memasukkan detail anime:
+      - Nama Anime (dikontrol oleh `_nameController`)
+      - Deskripsi (dikontrol oleh `_descriptionController`)
+      - URL Gambar (dikontrol oleh `_imageUrlController`)
+   3. Dua tombol aksi:
+      - "Tambah": Memanggil fungsi `_addAnime()` saat ditekan
+      - "Batal": Menutup dialog tanpa menambahkan anime
+
+### Penggunaan:
+
+Fungsi ini biasanya dipanggil ketika pengguna ingin menambahkan anime baru, misalnya saat menekan tombol "Tambah" di antarmuka utama aplikasi.
+
+## Demo
+
+
+
+
+
 
 
