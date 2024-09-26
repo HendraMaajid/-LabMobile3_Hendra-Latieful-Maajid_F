@@ -37,13 +37,12 @@ Aplikasi ini memungkinkan pengguna untuk menambahkan dan melihat daftar anime fa
 - `lib/main.dart`: Berisi kode untuk konfigurasi aplikasi dan routing.
 
 
-# Fitur Penambahan Anime
+## Fitur Penambahan Anime
 
-# Fitur Penambahan Anime
 
 README ini menjelaskan fitur penambahan anime, yang terdiri dari dua fungsi utama: `_addAnime()` dan `_showAddAnimeDialog()`.
 
-## 1. `_addAnime()`
+### 1. `_addAnime()`
 
 ```dart
 void _addAnime() {
@@ -75,7 +74,7 @@ void _addAnime() {
    3. Semua controller teks dibersihkan untuk mereset kolom input.
    4. Dialog ditutup menggunakan `Navigator.of(context).pop()`.
 
-## 2. `_showAddAnimeDialog()`
+### 2. `_showAddAnimeDialog()`
 
 ```dart
 void _showAddAnimeDialog() {
@@ -140,7 +139,7 @@ void _showAddAnimeDialog() {
 Fungsi ini biasanya dipanggil ketika pengguna ingin menambahkan anime baru, misalnya saat menekan tombol "Tambah" di antarmuka utama aplikasi.
 
 ## Demo
-
+![Demo](demo.gif)
 
 
 
