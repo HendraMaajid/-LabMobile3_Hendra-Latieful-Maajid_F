@@ -37,8 +37,7 @@ Aplikasi ini memungkinkan pengguna untuk menambahkan dan melihat daftar anime fa
 - `lib/main.dart`: Berisi kode untuk konfigurasi aplikasi dan routing.
 
 ## Fungsi Tambah Anime
-    
-    ```dart
+```dart
       void addAnime(String name, String description, String imageUrl) {
         setState(() {
           animeList.add(Anime(name: name, description: description, imageUrl: imageUrl));
@@ -95,6 +94,6 @@ Aplikasi ini memungkinkan pengguna untuk menambahkan dan melihat daftar anime fa
           },
         );
       }
-    ```
+```
 
 
