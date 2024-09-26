@@ -139,7 +139,7 @@ void _showAddAnimeDialog() {
 Fungsi ini biasanya dipanggil ketika pengguna ingin menambahkan anime baru, misalnya saat menekan tombol "Tambah" di antarmuka utama aplikasi.
 
 ## Demo
-![Demo](demo.gif)
+<img src="demo.gif" alt="Demo Fitur Penambahan Anime" width="300"/>
 
 
 
